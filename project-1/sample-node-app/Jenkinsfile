@@ -10,12 +10,13 @@ pipeline {
 
     stages {
         stage('Checkout') {
-        steps {
-            git branch: 'main',
-            url: 'https://github.com/Shreyashh09/devopslab.git',
-            credentialsId: 'github-ssh'
-    }
-}
+            steps {
+                // Explicit git checkout with credentials
+                git branch: 'main',
+                    url: 'https://github.com/Shreyashh09/devopslab.git',
+                    credentialsId: 'github-creds'  // <-- replace with your actual credential ID
+            }
+        }
 
         stage('Install Dependencies') {
             steps {
