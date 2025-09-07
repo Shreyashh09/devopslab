@@ -1,0 +1,18 @@
+pipeline {
+    agent none
+
+    stages {
+        stage('Compile') {
+            agent { label 'slave-compile' }
+            steps {
+                sh 'mvn clean compile'
+            }
+        }
+        stage('Test') {
+            agent { label 'slave-test' }
+            steps {
+                sh 'mvn test'
+            }
+        }
+    }
+}
