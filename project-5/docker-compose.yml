@@ -1,0 +1,11 @@
+version: "3.9"
+services:
+  retail-app:
+    build: .
+    image: retailco/retail-app:0.0.1
+    ports:
+      - "8081:8081"
+    environment:
+      - JAVA_TOOL_OPTIONS=-XX:MaxRAMPercentage=75.0
+
+
